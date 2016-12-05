@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Id_Categoria: 1
+  Nombre: MyString
+  Padre: 1
+
+two:
+  Id_Categoria: 1
+  Nombre: MyString
+  Padre: 1

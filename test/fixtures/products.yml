@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Id_Producto: 1
+  Id_Categoria: 1
+  Nombre: MyString
+  Descripcion: MyText
+  Modelo: MyString
+  Precio: 1
+  Cantidad: 1
+  Imagen: MyString
+  Fecha_Agregado: 2016-12-04
+
+two:
+  Id_Producto: 1
+  Id_Categoria: 1
+  Nombre: MyString
+  Descripcion: MyText
+  Modelo: MyString
+  Precio: 1
+  Cantidad: 1
+  Imagen: MyString
+  Fecha_Agregado: 2016-12-04

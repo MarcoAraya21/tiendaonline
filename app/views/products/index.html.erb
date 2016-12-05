@@ -1,0 +1,34 @@
+<h1><u>Lista Productos</u></h1>
+<br>
+<table border=1>
+<tr>
+<td>Id_Producto</td>
+<td>Id_Categoria</td>
+<td>Nombre</td>
+<td>Descripcion</td>
+<td>Modelo</td>
+<td>Precio</td>
+<td>Cantidad</td>
+<td>Imagen</td>
+<td>Fecha_Agregado</td>
+</tr>
+<% @products.each do|product| %>
+<tr>
+	<td><%=product.Id_producto%></td>
+	<td><%=product.Id_Categoria%></td>
+	<td><%=product.Nombre%></td>
+	<td><%=product.Descripcion%></td>
+	<td><%=product.Modelo%></td>
+	<td>$<%=product.Precio%></td>
+	<td><%=product.Cantidad%></td>
+	<td><%= image_tag product.Imagen, :alt => product.Imagen, width:150 ,heigth:20%></td>
+	<td><%=product.Fecha_Agregado%></td>
+</tr>
+
+	<%end%>
+</table>
+<br>
+<left>
+<input type='button' onclick=" location.href='/mantencion' " name='boton3' value='Volver' style='width:150; height:50'>
+</input>
+</left>

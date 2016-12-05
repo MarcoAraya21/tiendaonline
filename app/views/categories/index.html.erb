@@ -1,0 +1,22 @@
+<h1><u>Lista Categorias</u></h1>
+<br>
+<table border=1>
+<tr>
+<td>Id_Categorias</td>
+<td>Nombre</td>
+<td>Padre</td>
+</tr>
+<% @categories.each do|category| %>
+<tr>
+	<td><%=category.Id_Categoria%></td>
+	<td><%=category.Nombre%></td>
+	<td><%=category.Padre%></td>
+</tr>
+
+	<%end%>
+</table>
+
+<left>
+<input type='button' onclick=" location.href='/categorias' " name='boton3' value='Volver' style='width:150; height:50'>
+</input>
+</left>

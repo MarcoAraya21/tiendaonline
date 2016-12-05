@@ -1,0 +1,29 @@
+<h1><u>Agregar Categoria</u></h1>
+<div align="center">
+<%= image_tag 'logo2.jpg', :alt =>'logo2'%>
+<br>
+<br>
+<%= form_for(@category) do |f| %>
+<% @category.errors.full_messages.each do|messages| %>
+<div>
+<%= messages %>
+</div>
+<%end%>
+	<div class="field">
+	<%= f.text_field :Id_Categoria, placeholder:"Categoria" %>
+	</div>
+	<div class="field">
+	<%= f.text_field :Nombre,placeholder:"Nombre"%>
+	</div>
+	<div class="field">
+	<%= f.text_field :Padre,placeholder:"Padre"%>
+	</div>
+	<div class="field">
+	<%= f.submit "Guardar Categoria",class:"btn be-blue white"%>
+<%end%>
+</div>
+<br>
+<center>
+<input type='button' onclick=" location.href='/categorias' " name='boton3' value='Volver' style='width:150; height:50'>
+</input>
+</center>

@@ -1,0 +1,45 @@
+<h1><u>Agregar Producto</u></h1>
+<div align="center">
+<%= image_tag 'logo2.jpg', :alt =>'logo2'%>
+<br>
+<br>
+<%= form_for(@product) do |f| %>
+<% @product.errors.full_messages.each do|messages| %>
+<div>
+<%= messages %>
+</div>
+<%end%>
+	<div class="field">
+	<%= f.text_field :Id_producto, placeholder:"Id_Producto" %>
+	</div>
+	<div class="field">
+	<%= f.text_field :Id_Categoria, placeholder:"Id_Categoria" %>
+	</div>
+	<div class="field">
+	<%= f.text_field :Nombre,placeholder:"Nombre"%>
+	</div>
+	<div class="field">
+	<%= f.text_area :Descripcion,placeholder:"Descripcion",style:"width:190px;height:100px;"%>
+	</div>
+	<div class="field">
+	<%= f.text_field :Precio,placeholder:"Precio"%>
+	</div>
+	<div class="field">
+	<%= f.text_field :Cantidad,placeholder:"Cantidad"%>
+	</div>
+	<div class="field">
+	<%= f.text_field :Imagen,placeholder:"Imagen"%>
+	</div>
+	<div class="field">
+	<%= f.date_field :Fecha_Agregado,placeholder:"Fecha_Agregado"%>
+	</div>
+	<div class="field">
+	<%= f.submit "Guardar Producto",class:"btn be-blue white"%>
+<%end%>
+</div>
+<br>
+<center>
+<input type='button' onclick=" location.href='/mantencion' " name='boton3' value='Volver' style='width:150; height:50'>
+</input>
+</center>
+<br>
