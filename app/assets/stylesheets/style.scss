@@ -1,6 +1,13 @@
 html,body{
 	margin: 0px;
 	font-family: 'Open Sans', sans-serif;
+	background-image: image-url("fondo.jpeg");
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: 0cm -1cm;
+    background-attachment: fixed;
 }
 a,a:visited{
 	color: inherit !important;

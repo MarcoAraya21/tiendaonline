@@ -8,7 +8,7 @@
 <td>Descripcion</td>
 <td>Modelo</td>
 <td>Precio</td>
-<td>Cantidad</td>
+<td>Stock</td>
 <td>Imagen</td>
 <td>Fecha_Agregado</td>
 </tr>
@@ -20,9 +20,10 @@
 	<td><%=product.Descripcion%></td>
 	<td><%=product.Modelo%></td>
 	<td>$<%=product.Precio%></td>
-	<td><%=product.Cantidad%></td>
+	<td><%=product.Stock%></td>
 	<td><%= image_tag product.Imagen, :alt => product.Imagen, width:150 ,heigth:20%></td>
 	<td><%=product.Fecha_Agregado%></td>
+	<td><%=link_to "Eliminar Producto" , product,method: :delete %></td>
 </tr>
 
 	<%end%>

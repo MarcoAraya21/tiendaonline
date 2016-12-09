@@ -7,11 +7,12 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.text :Descripcion
       t.string :Modelo
       t.integer :Precio
-      t.integer :Cantidad
+      t.integer :Stock
       t.string :Imagen
       t.date :Fecha_Agregado
 
       t.timestamps
     end
+    
   end
 end

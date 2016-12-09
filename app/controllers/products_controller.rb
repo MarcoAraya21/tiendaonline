@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
 								Nombre: params[:product][:Nombre],
 								Descripcion: params[:product][:Descripcion],
 								Precio: params[:product][:Precio],
-								Cantidad: params[:product][:Cantidad],
+								Stock: params[:product][:Stock],
 								Imagen: params[:product][:Imagen],
 								Fecha_Agregado: params[:product][:Fecha_Agregado])
 
@@ -23,5 +23,13 @@ class ProductsController < ApplicationController
 		else
 			render :new
 		end
+	end
+	def update
+		#@product.update_attributes({stock:'30'})
+	end
+	def destroy
+		@product = Product.find(params[:id])
+		@product.destroy
+		redirect_to mantencion_path
 	end
 end

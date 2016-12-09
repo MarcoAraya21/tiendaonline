@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205020041) do
+ActiveRecord::Schema.define(version: 20161209000901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,17 +24,32 @@ ActiveRecord::Schema.define(version: 20161205020041) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer  "Id_producto"
     t.integer  "Id_Categoria"
     t.string   "Nombre"
     t.text     "Descripcion"
     t.string   "Modelo"
     t.integer  "Precio"
-    t.integer  "Cantidad"
+    t.integer  "Stock"
     t.string   "Imagen"
     t.date     "Fecha_Agregado"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "Id_producto"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string   "Id_Usuario"
+    t.string   "Nombre"
+    t.integer  "Id_Tipo"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end

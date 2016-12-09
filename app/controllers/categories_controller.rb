@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
 	end
 	def show
 		@category = Category.find(params[:id])
+		#Category.where("id = ?",params[:id])
 	end
 	def new
 		@category = Category.new
@@ -18,5 +19,8 @@ class CategoriesController < ApplicationController
 		else
 			render :new
 		end
+	end
+	def destroy
+		
 	end
 end
