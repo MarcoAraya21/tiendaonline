@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Nuevo_Precio: 1
+  Fecha_ini: 2016-12-09
+  fecha_fin: 2016-12-09
+
+two:
+  Nuevo_Precio: 1
+  Fecha_ini: 2016-12-09
+  fecha_fin: 2016-12-09

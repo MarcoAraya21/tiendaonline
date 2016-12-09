@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  Rut: 
   Nombre: MyString
-  Padre: 1
+  Apellido: MyString
 
 two:
+  Rut: 
   Nombre: MyString
-  Padre: 1
+  Apellido: MyString

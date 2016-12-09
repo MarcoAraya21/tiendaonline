@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
-	
-	validates :Id_producto,presence: true,uniqueness: true
-	validates :Id_Categoria,presence: true
+	has_many :sales
+	belongs_to :category
+	has_many :reservations
+	has_many :offers
 	validates :Nombre,presence: true,length:{minimum:3, maximum:30} 
 	validates :Descripcion,presence: true,length:{minimum:10}
 	validates :Precio,presence: true

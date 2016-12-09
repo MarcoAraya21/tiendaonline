@@ -9,9 +9,7 @@ class ProductsController < ApplicationController
 		@product = Product.new
 	end
 	def create
-		@product = Product.new(Id_producto: params[:product][:Id_producto],
-								Id_Categoria: params[:product][:Id_Categoria],
-								Nombre: params[:product][:Nombre],
+		@product = Product.new(Nombre: params[:product][:Nombre],
 								Descripcion: params[:product][:Descripcion],
 								Precio: params[:product][:Precio],
 								Stock: params[:product][:Stock],
