@@ -7,7 +7,6 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer :Precio
       t.integer :Stock
       t.string :Imagen
-      t.date :Fecha_Agregado
 
       t.timestamps
     end

@@ -9,17 +9,9 @@
 <%= messages %>
 </div>
 <%end%>
-	<div class="field">
-	
-  	</div>
-	<div class="field">
-	<%= categoria = f.collection_select :category_id,Category.limit(7),:id,:Nombre%>
-  	</div>
-  	<% if f?(1) %>
-	<div class="field">
-	<%= f.collection_select :category_id,Category.limit(3).offset(7),:id,:Nombre%>
-  	</div>
-  	<% end %>
+<div class="field">
+	<%= f.text_field :category_id,placeholder:"Categoria"%>
+	</div>
 	<div class="field">
 	<%= f.text_field :Nombre,placeholder:"Nombre"%>
 	</div>

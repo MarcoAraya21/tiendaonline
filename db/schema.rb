@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20161218010448) do
     t.integer  "Precio"
     t.integer  "Stock"
     t.string   "Imagen"
-    t.date     "Fecha_Agregado"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "category_id"
