@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209043650) do
+ActiveRecord::Schema.define(version: 20161218010448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 20161209043650) do
   create_table "categories", force: :cascade do |t|
     t.string   "Nombre"
     t.integer  "Padre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_categories_on_category_id", using: :btree
   end
 
   create_table "customers", force: :cascade do |t|
@@ -103,6 +105,7 @@ ActiveRecord::Schema.define(version: 20161209043650) do
     t.index ["type_id"], name: "index_users_on_type_id", using: :btree
   end
 
+  add_foreign_key "categories", "categories"
   add_foreign_key "offers", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "reservations", "customers"

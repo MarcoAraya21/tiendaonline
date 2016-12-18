@@ -10,16 +10,13 @@
 </div>
 <%end%>
 	<div class="field">
-	<%= f.text_field :Id_Categoria, placeholder:"Categoria" %>
-	</div>
-	<div class="field">
 	<%= f.text_field :Nombre,placeholder:"Nombre"%>
 	</div>
 	<div class="field">
-	<%= f.text_field :Padre,placeholder:"Padre"%>
-	</div>
+	<%= f.collection_select :Padre,Category.limit(7),:id,:Nombre%>
+  	</div>
 	<div class="field">
-	<%= f.submit "Guardar Categoria",class:"btn be-blue white"%>
+	<%= f.submit "Guardar Categoria",  class:"btn be-blue white"%>
 <%end%>
 </div>
 <br>

@@ -14,12 +14,14 @@ class CategoriesController < ApplicationController
 								Padre: params[:category][:Padre])
 
 		if	@category.save
-			redirect_to @category
+			redirect_to "/categories/"
 		else
 			render :new
 		end
 	end
 	def destroy
-		
+		@category = Category.find(params[:id])
+		@category.destroy
+		redirect_to categorias_path
 	end
 end

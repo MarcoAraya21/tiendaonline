@@ -10,11 +10,16 @@
 </div>
 <%end%>
 	<div class="field">
-	<%= f.text_field :Id_producto, placeholder:"Id_Producto" %>
-	</div>
+	
+  	</div>
 	<div class="field">
-	<%= f.text_field :Id_Categoria, placeholder:"Id_Categoria" %>
-	</div>
+	<%= categoria = f.collection_select :category_id,Category.limit(7),:id,:Nombre%>
+  	</div>
+  	<% if f?(1) %>
+	<div class="field">
+	<%= f.collection_select :category_id,Category.limit(3).offset(7),:id,:Nombre%>
+  	</div>
+  	<% end %>
 	<div class="field">
 	<%= f.text_field :Nombre,placeholder:"Nombre"%>
 	</div>
@@ -29,9 +34,6 @@
 	</div>
 	<div class="field">
 	<%= f.text_field :Imagen,placeholder:"Imagen"%>
-	</div>
-	<div class="field">
-	<%= f.date_field :Fecha_Agregado,placeholder:"Fecha_Agregado"%>
 	</div>
 	<div class="field">
 	<%= f.submit "Guardar Producto",class:"btn be-blue white"%>

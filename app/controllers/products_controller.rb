@@ -9,12 +9,13 @@ class ProductsController < ApplicationController
 		@product = Product.new
 	end
 	def create
-		@product = Product.new(Nombre: params[:product][:Nombre],
+		@product = Product.new( category_id: params[:product][:category_id],
+								Nombre: params[:product][:Nombre],
 								Descripcion: params[:product][:Descripcion],
 								Precio: params[:product][:Precio],
 								Stock: params[:product][:Stock],
 								Imagen: params[:product][:Imagen],
-								Fecha_Agregado: params[:product][:Fecha_Agregado])
+								Fecha_Agregado: params[:product][Time.now])
 
 		if	@product.save
 			redirect_to @product
