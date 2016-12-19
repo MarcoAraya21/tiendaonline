@@ -1,7 +1,6 @@
 class Category < ApplicationRecord
-	has_many :products
-	validates :Nombre,presence: true,format:{with: /([0-9 a-z A-Z]{4,30})/}
-	validates :Padre,presence: true
+	has_many :productos
+	validates :Nombre,format:{with: /([0-9 a-z A-Z]{4,30})/,:message=>"de 4 a 30 caracteres"},uniqueness: {:message=>"Ya se encuentra en la BD"}
 	#validar con expresiones regulares validates :username,format:{with: /regex/}
 
 

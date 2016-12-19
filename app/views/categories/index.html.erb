@@ -1,18 +1,18 @@
 <h1><u>Lista Categorias</u></h1>
 <br>
-<table border=1>
+<table border=1 bgcolor="white">
 <tr>
-<td bgcolor="white">Id_Categorias</td>
-<td bgcolor="white">Nombre</td>
-<td bgcolor="white">Padre</td>
-<td bgcolor="white">Eliminar</td>
+<td>Id_Categorias</td>
+<td>Nombre</td>
+<td>Modificar</td>
+<td>Eliminar</td>
 </tr>
-<% @categories.each do|category| %>
+<% @categories.order(:id).each do|category| %>
 <tr>
-	<td bgcolor="white"><%=category.id%></td>
-	<td bgcolor="white"><%=category.Nombre%></td>
-	<td bgcolor="white"><%=category.Padre%></td>
-	<td bgcolor="white" align="center"><%=link_to "X" , category,method: :delete %></td>
+	<td><%=category.id%></td>
+	<td><%=category.Nombre%></td>
+	<td align="center"><%= link_to 'M', edit_category_path(category) %></td>
+	<td align="center"><%=link_to "X" , category,method: :delete %></td>
 </tr>
 
 	<%end%>

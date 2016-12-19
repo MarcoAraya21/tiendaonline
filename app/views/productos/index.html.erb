@@ -1,0 +1,50 @@
+
+
+<h1>Productos</h1>
+
+<table bgcolor="white" border="1">
+  <thead>
+    <tr>
+      <th>Categoria</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Modelo</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Imagen</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @productos.each do |producto| %>
+      <tr>
+
+        <td><%= producto.category.Nombre %></td>
+        <td><%= producto.Nombre %></td>
+        <td><%= producto.Descripcion %></td>
+        <td><%= producto.Modelo %></td>
+        <td><%= producto.Precio %></td>
+        <td><%= producto.Stock %></td>
+        <td><%= image_tag producto.Imagen, :alt => producto.Imagen, width:150 ,heigth:20%></td>
+        <td><%= link_to 'Mostrar', producto %></td>
+        <td><%= link_to 'Modificar', edit_producto_path(producto) %></td>
+        <td><%= link_to 'Eliminar', producto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<table border=1 bgcolor="white">
+<tr>
+<td>
+<%= link_to 'Crear NUEVO Producto', new_producto_path %>
+</td>
+</tr>
+<tr align="center">
+<td>
+<input type='button' onclick=" location.href='principal' " name='boton3' value='Volver' style='width:150; height:50'>
+</td>
+</tr>
+</table>

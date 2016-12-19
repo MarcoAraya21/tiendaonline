@@ -1,0 +1,74 @@
+
+<table border=1 bgcolor=white>
+<tr>
+<td colspan=2 align="center">
+<strong>Producto N° <%= @producto.id %></strong>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Categoria:</strong>
+</td>
+<td>
+  <%= @producto.category_id %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Nombre:</strong>
+</td>
+<td>
+  <%= @producto.Nombre %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Descripcion:</strong>
+</td>
+<td>
+  <%= @producto.Descripcion %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Modelo:</strong>
+</td>
+<td>
+  <%= @producto.Modelo %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Precio:</strong>
+</td>
+<td>
+  <%= @producto.Precio %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Stock:</strong>
+</td>
+<td>
+  <%= @producto.Stock %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Imagen:</strong>
+</td>
+<td>
+  <%= image_tag @producto.Imagen, :alt => @producto.Imagen, width:150 ,heigth:20%>
+</td>
+</tr>
+</table>
+<br>
+<%= link_to 'Modificar', edit_producto_path(@producto) %> |
+<%= link_to 'Volver', productos_path %>

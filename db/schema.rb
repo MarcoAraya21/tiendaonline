@@ -10,18 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161218010448) do
+ActiveRecord::Schema.define(version: 20161218205631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string   "Nombre"
-    t.integer  "Padre"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "category_id"
-    t.index ["category_id"], name: "index_categories_on_category_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -42,6 +39,19 @@ ActiveRecord::Schema.define(version: 20161218010448) do
     t.index ["product_id"], name: "index_offers_on_product_id", using: :btree
   end
 
+  create_table "productos", force: :cascade do |t|
+    t.integer  "category_id"
+    t.string   "Nombre"
+    t.text     "Descripcion"
+    t.string   "Modelo"
+    t.integer  "Precio"
+    t.integer  "Stock"
+    t.string   "Imagen"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_productos_on_category_id", using: :btree
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "Nombre"
     t.text     "Descripcion"
@@ -49,8 +59,8 @@ ActiveRecord::Schema.define(version: 20161218010448) do
     t.integer  "Precio"
     t.integer  "Stock"
     t.string   "Imagen"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "category_id"
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
@@ -104,8 +114,8 @@ ActiveRecord::Schema.define(version: 20161218010448) do
     t.index ["type_id"], name: "index_users_on_type_id", using: :btree
   end
 
-  add_foreign_key "categories", "categories"
   add_foreign_key "offers", "products"
+  add_foreign_key "productos", "categories"
   add_foreign_key "products", "categories"
   add_foreign_key "reservations", "customers"
   add_foreign_key "reservations", "products"

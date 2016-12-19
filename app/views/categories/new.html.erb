@@ -4,17 +4,20 @@
 <br>
 <br>
 <%= form_for(@category) do |f| %>
-<% @category.errors.full_messages.each do|messages| %>
-<div>
-<%= messages %>
-</div>
+	<% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> en esta categoria para ser guardado:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
 <%end%>
 	<div class="field">
 	<%= f.text_field :Nombre,placeholder:"Nombre"%>
 	</div>
-	<div class="field">
-	<%= f.collection_select :Padre,Category.limit(7),:id,:Nombre%>
-  	</div>
 	<div class="field">
 	<%= f.submit "Guardar Categoria",  class:"btn be-blue white"%>
 <%end%>

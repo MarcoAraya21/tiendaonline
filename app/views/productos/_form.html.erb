@@ -1,0 +1,50 @@
+<%= form_for(producto) do |f| %>
+  <% if producto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(producto.errors.count, "error") %> en este producto:</h2>
+
+      <ul>
+      <% producto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+  <%= f.collection_select :category_id,Category.limit(7).order(:id),:id,:Nombre,include_blank: true%>
+  </div>
+  <div class="field">
+    <%= f.label :Nombre %>
+    <%= f.text_field :Nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Descripcion %>
+    <%= f.text_area :Descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Modelo %>
+    <%= f.text_field :Modelo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Precio %>
+    <%= f.number_field :Precio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Stock %>
+    <%= f.number_field :Stock %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Imagen %>
+    <%= f.text_field :Imagen %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
