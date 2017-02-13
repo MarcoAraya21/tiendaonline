@@ -1,0 +1,24 @@
+<u><h1 align='center'><b> <%= image_tag 'logo2.jpg', :alt =>'logo2'%></h1></u>
+<br>
+<table align="center" border=1 bgcolor="white">
+<tr>
+<td>Tipo De Producto</td>
+<td>Nombre</td>
+<td>Modificar</td>
+<td>Eliminar</td>
+</tr>
+<% @producttypes.order(:id).each do|producttype| %>
+<tr>
+  <td><%=producttype.id%></td>
+  <td><%=producttype.Nombre%></td>
+  <td align="center"><%= link_to 'M', edit_producttype_path(producttype) %></td>
+  <td align="center"><%=link_to "X" , producttype,method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+</tr>
+
+  <%end%>
+</table>
+<br>
+<center>
+<input type='button' onclick=" location.href='/tipos' " name='boton3' value='Volver' style='width:150; height:50'>
+</input>
+</center>

@@ -1,0 +1,35 @@
+<div align="center">
+<%= image_tag 'logo2.jpg', :alt =>'logo2'%>
+<br>
+<br>
+<%= form_for(@type) do |f| %>
+	<% if @type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@type.errors.count, "error") %> en este tipo para ser guardado:</h2>
+
+      <ul>
+      <% @type.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+<%end%>
+<table>
+  <tr bgcolor="white">
+    <td>
+    <strong>Ingrese nuevo tipo :</strong>
+    </td>
+  </tr>
+</table>
+	<div class="field">
+	<%= f.text_field :Descripcion,placeholder:"Descripcion"%>
+	</div>
+	<div class="field">
+	<%= f.submit "Guardar Tipo",  class:"btn be-blue white"%>
+<%end%>
+</div>
+<br>
+<center>
+<input type='button' onclick=" location.href='/tipos' " name='boton3' value='Volver' style='width:150; height:50'>
+</input>
+</center>

@@ -1,23 +1,22 @@
 <center>
-<%= form_for(category) do |f| %>
-  <% if category.errors.any? %>
+<%= form_for(producttype) do |f| %>
+  <% if producttype.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> en esta categoria para ser modificado:</h2>
+      <h2><%= pluralize(producttype.errors.count, "error") %> en este tipo para ser modificado:</h2>
 
       <ul>
-      <% category.errors.full_messages.each do |message| %>
+      <% producttype.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-
   <div class="field">
-  <table>
+   <table>
   <tr bgcolor="white">
   <td>
-    <strong>Ingrese nuevo nombre de categoria :</strong>
+    <strong>Ingrese nuevo nombre de tipo :</strong>
     </td>
     </tr>
     <tr>

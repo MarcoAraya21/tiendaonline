@@ -1,4 +1,6 @@
-
+<center>
+<u><h1 align='center'><b> <%= image_tag 'logo2.jpg', :alt =>'logo2'%></h1></u>  
+<br>
 <table border=1 bgcolor=white>
 <tr>
 <td colspan=2 align="center">
@@ -12,6 +14,15 @@
 </td>
 <td>
   <%= @producto.category_id %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Tipo:</strong>
+</td>
+<td>
+  <%= @producto.producttype_id %>
 </td>
 </tr>
 
@@ -72,3 +83,4 @@
 <br>
 <%= link_to 'Modificar', edit_producto_path(@producto) %> |
 <%= link_to 'Volver', productos_path %>
+</center>

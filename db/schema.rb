@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161218205631) do
+ActiveRecord::Schema.define(version: 20161227000901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 20161218205631) do
     t.index ["product_id"], name: "index_offers_on_product_id", using: :btree
   end
 
+  create_table "product_types", force: :cascade do |t|
+    t.string   "Nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "productos", force: :cascade do |t|
     t.integer  "category_id"
     t.string   "Nombre"
@@ -47,9 +53,11 @@ ActiveRecord::Schema.define(version: 20161218205631) do
     t.integer  "Precio"
     t.integer  "Stock"
     t.string   "Imagen"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "producttype_id"
     t.index ["category_id"], name: "index_productos_on_category_id", using: :btree
+    t.index ["producttype_id"], name: "index_productos_on_producttype_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -63,6 +71,12 @@ ActiveRecord::Schema.define(version: 20161218205631) do
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
+  end
+
+  create_table "producttypes", force: :cascade do |t|
+    t.string   "Nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -95,7 +109,6 @@ ActiveRecord::Schema.define(version: 20161218205631) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -109,6 +122,7 @@ ActiveRecord::Schema.define(version: 20161218205631) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "type_id"
+    t.string   "email",                  default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["type_id"], name: "index_users_on_type_id", using: :btree
@@ -116,6 +130,7 @@ ActiveRecord::Schema.define(version: 20161218205631) do
 
   add_foreign_key "offers", "products"
   add_foreign_key "productos", "categories"
+  add_foreign_key "productos", "producttypes"
   add_foreign_key "products", "categories"
   add_foreign_key "reservations", "customers"
   add_foreign_key "reservations", "products"

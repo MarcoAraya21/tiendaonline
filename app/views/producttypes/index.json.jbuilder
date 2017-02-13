@@ -1,0 +1,1 @@
+json.array! @producttypes, partial: 'producttypes/producttype', as: :producttype

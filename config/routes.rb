@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  resources :producttypes
   resources :productos
+  resources :types
   devise_for :users
 get 'welcome/index'
 
@@ -12,6 +14,10 @@ get'categorias', to:'categorias#index'
 get 'mantencion/index'
 
 get'mantencion', to:'mantencion#index'
+
+get 'tipos/index'
+
+get'tipos', to:'tipos#index'
 
 	resources :products
 =begin

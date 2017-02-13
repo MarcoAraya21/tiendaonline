@@ -1,15 +1,15 @@
 <u><h1 align='center'><b> <%= image_tag 'logo2.jpg', :alt =>'logo2'%></h1></u>
 
-<%= render 'form', category: @category %>
+<%= render 'form', producttype: @producttype %>
 
 <center>
 <table bgcolor="white" >
 <tr>
 <td>
-<%= link_to 'Mostrar', @category %> |
+<%= link_to 'Mostrar', @producttype %> |
 </td>
 <td>
-<%= link_to 'Volver', categorias_path %>
+<%= link_to 'Volver', producttypes_path %>
 </td>
 </tr>
 </table>

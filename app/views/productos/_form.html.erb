@@ -1,3 +1,4 @@
+<center>
 <%= form_for(producto) do |f| %>
   <% if producto.errors.any? %>
     <div id="error_explanation">
@@ -12,35 +13,39 @@
   <% end %>
 
   <div>
-  <%= f.collection_select :category_id,Category.limit(7).order(:id),:id,:Nombre,include_blank: true%>
+  <%= f.collection_select  :category_id,Category.limit(7).order(:id),:id,:Nombre,prompt: "Seleccione Categoria"%>
+  </div>
+  <br>
+  <div>
+  <%= f.collection_select  :producttype_id,Producttype.limit(7).order(:id),:id,:Nombre,prompt: "Seleccione Tipo"%>
   </div>
   <div class="field">
-    <%= f.label :Nombre %>
+    <%= f.label :Nombre ,"Ingrese Nombre del producto :"%>
     <%= f.text_field :Nombre %>
   </div>
 
   <div class="field">
-    <%= f.label :Descripcion %>
+    <%= f.label :Descripcion,"Ingrese Descripcion del producto :" %>
     <%= f.text_area :Descripcion %>
   </div>
 
   <div class="field">
-    <%= f.label :Modelo %>
+    <%= f.label :Modelo,"Ingrese Modelo del producto :" %>
     <%= f.text_field :Modelo %>
   </div>
 
   <div class="field">
-    <%= f.label :Precio %>
+    <%= f.label :Precio,"Ingrese Precio del producto :" %>
     <%= f.number_field :Precio %>
   </div>
 
   <div class="field">
-    <%= f.label :Stock %>
+    <%= f.label :Stock,"Ingrese Stock Actual del producto :" %>
     <%= f.number_field :Stock %>
   </div>
 
   <div class="field">
-    <%= f.label :Imagen %>
+    <%= f.label :Imagen,"Ingrese Imagen del producto :" %>
     <%= f.text_field :Imagen %>
   </div>
 
@@ -48,3 +53,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</center>

@@ -1,6 +1,6 @@
-<h1><u>Lista Categorias</u></h1>
+<u><h1 align='center'><b> <%= image_tag 'logo2.jpg', :alt =>'logo2'%></h1></u>
 <br>
-<table border=1 bgcolor="white">
+<table align="center" border=1 bgcolor="white">
 <tr>
 <td>Id_Categorias</td>
 <td>Nombre</td>
@@ -12,13 +12,13 @@
 	<td><%=category.id%></td>
 	<td><%=category.Nombre%></td>
 	<td align="center"><%= link_to 'M', edit_category_path(category) %></td>
-	<td align="center"><%=link_to "X" , category,method: :delete %></td>
+	<td align="center"><%=link_to "X" , category,method: :delete, data: { confirm: 'Are you sure?' }  %></td>
 </tr>
 
 	<%end%>
 </table>
-
-<left>
+<br>
+<center>
 <input type='button' onclick=" location.href='/categorias' " name='boton3' value='Volver' style='width:150; height:50'>
 </input>
-</left>
+</center>
