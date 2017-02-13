@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :producttypes
   resources :productos
   resources :types
-  devise_for :users
+  devise_for :users, controllers: {registrations: "registrations" }
 get 'welcome/index'
 
 get 'principal', to: 'welcome#index'
