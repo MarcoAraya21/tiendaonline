@@ -5,31 +5,52 @@
 
 <br>
 <center>
-<input type='button' onclick=" location.href='vender.php' "  name='boton' value='Vender' style='width:150;height:50' disabled="true">
+<input type='button' onclick=" location.href='vender.php' "  name='boton' value='Vender' style='width:150;height:50'>
 </input>
 </center>
 <br>
 <center>
-<input type='button' onclick=" location.href='productos' " name='boton4' value='Mantencion De Productos' style='width:150;height:50'>
+<input type='button' onclick=" location.href='productos' " name='boton4' value='Mantencion De Productos' style='width:150;height:50' <% if user_signed_in? %> <% if current_user.type_id == 1%>
+<%else%>
+ disabled="true"
+<%end%>
+<%else%>
+ disabled="true"
+<%end%>
+>
 </input>
 </center>
 <br>
 <center>
-<input type='button' onclick=" location.href='categorias' " name='boton4' value='Categorias' style='width:150;height:50'>
+<input type='button' onclick=" location.href='categorias' " name='boton4' value='Categorias' style='width:150;height:50' <% if user_signed_in? %> <% if current_user.type_id == 1%>
+<%else%>
+ disabled="true"
+<%end%>
+<%else%>
+ disabled="true"
+<%end%>
+>
 </input>
 </center>
 <br>
 <center>
-<input type='button' onclick=" location.href='tipos' " name='boton4' value='Tipos' style='width:150;height:50'>
+<input type='button' onclick=" location.href='tipos' " name='boton4' value='Tipos' style='width:150;height:50' <% if user_signed_in? %> <% if current_user.type_id == 1%>
+<%else%>
+ disabled="true"
+<%end%>
+<%else%>
+ disabled="true"
+<%end%>
+>
 </input>
 </center>
 <br>
 <center>
-<input type='button' onclick=" location.href='reserva.php' " name='boton3' value='Reserva' style='width:150;height:50' disabled="true">
+<input type='button' onclick=" location.href='reserva.php' " name='boton3' value='Reserva' style='width:150;height:50'>
 </input>
 </center>
 <br>
 <center>
-<input type='button' onclick=" location.href='consultas.php " name='boton5' value='Consultas' style='width:150;height:50' disabled="true">
+<input type='button' onclick=" location.href='consultas.php " name='boton5' value='Consultas' style='width:150;height:50'>
 </input>
 </center>

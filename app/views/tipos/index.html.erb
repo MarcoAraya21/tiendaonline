@@ -1,12 +1,26 @@
 <br>
 <center>
 <u><h1 align='center'><b> <%= image_tag 'logo2.jpg', :alt =>'logo2'%></h1></u>
-<input type='button' onclick=" location.href='producttypes/new' " name='boton4' value='Agregar TIpo' style='width:150; height:50'>
+<input type='button' onclick=" location.href='producttypes/new' " name='boton4' value='Agregar TIpo' style='width:150; height:50' <% if user_signed_in? %> <% if current_user.type_id == 1%>
+<%else%>
+ disabled="true"
+<%end%>
+<%else%>
+ disabled="true"
+<%end%>
+>
 </input>
 </center>
 <br>
 <center>
-<input type='button' onclick=" location.href='producttypes' " name='boton4' value='Mostrar y Eliminar Tipos' style='width:150; height:50'>
+<input type='button' onclick=" location.href='producttypes' " name='boton4' value='Mostrar y Eliminar Tipos' style='width:150; height:50' <% if user_signed_in? %> <% if current_user.type_id == 1%>
+<%else%>
+ disabled="true"
+<%end%>
+<%else%>
+ disabled="true"
+<%end%>
+>
 </input>
 </center>
 <br>
