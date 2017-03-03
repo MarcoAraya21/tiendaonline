@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227000901) do
+ActiveRecord::Schema.define(version: 20170227043650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20161227000901) do
     t.date     "fecha_fin"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "product_id"
-    t.index ["product_id"], name: "index_offers_on_product_id", using: :btree
+    t.integer  "producto_id"
+    t.index ["producto_id"], name: "index_offers_on_producto_id", using: :btree
   end
 
   create_table "product_types", force: :cascade do |t|
@@ -84,21 +84,21 @@ ActiveRecord::Schema.define(version: 20161227000901) do
     t.date     "Fecha"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "product_id"
     t.integer  "customer_id"
+    t.integer  "producto_id"
     t.index ["customer_id"], name: "index_reservations_on_customer_id", using: :btree
-    t.index ["product_id"], name: "index_reservations_on_product_id", using: :btree
+    t.index ["producto_id"], name: "index_reservations_on_producto_id", using: :btree
   end
 
   create_table "sales", force: :cascade do |t|
     t.date     "Fecha"
     t.integer  "Cantidad"
     t.integer  "Total"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.integer  "product_id"
-    t.index ["product_id"], name: "index_sales_on_product_id", using: :btree
+    t.integer  "producto_id"
+    t.index ["producto_id"], name: "index_sales_on_producto_id", using: :btree
     t.index ["user_id"], name: "index_sales_on_user_id", using: :btree
   end
 
@@ -128,13 +128,15 @@ ActiveRecord::Schema.define(version: 20161227000901) do
     t.index ["type_id"], name: "index_users_on_type_id", using: :btree
   end
 
+  add_foreign_key "offers", "productos"
   add_foreign_key "offers", "products"
   add_foreign_key "productos", "categories"
   add_foreign_key "productos", "producttypes"
   add_foreign_key "products", "categories"
   add_foreign_key "reservations", "customers"
+  add_foreign_key "reservations", "productos"
   add_foreign_key "reservations", "products"
-  add_foreign_key "sales", "products"
+  add_foreign_key "sales", "productos"
   add_foreign_key "sales", "users"
   add_foreign_key "users", "types"
 end

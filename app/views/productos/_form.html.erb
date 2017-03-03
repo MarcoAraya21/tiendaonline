@@ -17,7 +17,7 @@
   </div>
   <br>
   <div>
-  <%= f.collection_select  :producttype_id,Producttype.limit(7).order(:id),:id,:Nombre,prompt: "Seleccione Tipo"%>
+  <%= f.select  (:producttype_id,Producttype.limit(7).order(:id).collect{|f| [ f.Nombre ,f.id ]},:id,:Nombre,prompt: "Seleccione Tipo")%>
   </div>
   <div class="field">
     <%= f.label :Nombre ,"Ingrese Nombre del producto :"%>

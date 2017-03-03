@@ -1,0 +1,65 @@
+<%= form_for(@sale) do |f| %>
+  <% if @sale.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sale.errors.count, "error") %> en este venta:</h2>
+
+      <ul>
+      <% @sale.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h1>Vender</h1>
+<center><h2><em>Seleccione Datos : </em></h2></center>
+<br>
+<br>
+<table id="tabla" border=1 style="margin: 0 auto;">
+  <tr>
+    <th scope="col">Categoria</th>
+    <th scope="col">Subcategoria</th>
+	<th scope="col">Producto</th>
+    <th scope="col">Precio</th>
+	<th scope="col">Cantidad</th>
+	<th scope="col">Precio Final</th>
+  </tr>
+  <tr>
+    <td>
+	<%= f.collection_select  :producto_id,Producto.order(:Nombre),:id,:Nombre,prompt: "Seleccione Categoria"%>
+	</td>		
+	<td>
+    <select id="producto" name="producto">
+	<option value=0> Elige </option>
+	</select>	
+	</td>
+    <td>
+	<select type="text" id="precio" name="precio" value="0" onChange="multiplicar()">
+	</select>
+	</td>
+	<td>
+	<input type="text" id="cantidad" name="cantidad" value="1" onChange="multiplicar()">
+	</td>
+	<td>
+	<input type="text" id="total" name="total" class="form-input">
+	</td>
+  </tr> 
+</table>
+
+<br>
+ <table style="margin: 0 auto;">
+ <tr>
+ <th>
+ <h1><input class="form-btn" type='button' name='Vender' value='Vender' onclick="valida()" style='width:100; height:50'></h1>
+ </th>
+ </tr>
+</table>
+</form>
+<table style="margin: 0 auto;">
+<tr>
+<th>
+<h1><input type='button' onclick=" location.href='../ventas' " name='volver' value='Volver' style='width:100; height:50'></h1>
+</th>
+</tr>
+</table>
+<% end %>
