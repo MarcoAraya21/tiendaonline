@@ -24,11 +24,11 @@
   </tr>
   <tr>
     <td>
-    <%= f.collection_select  :producto_id,Producto.order(:Nombre),:id,:Nombre,prompt: "Seleccione Categoria"%>
+    <%= f.collection_select  :producto_id,Producto.order(:Nombre),:id,:Nombre,prompt: "Seleccione Producto"%>
     </td>
 
     <td>
-    <%= f.collection_select  :customer_id,Customer.order(:id),:id,:Rut,prompt: "Seleccione Categoria"%>
+    <%= f.collection_select  :customer_id,Customer.order(:id),:id,:Rut,prompt: "Seleccione Cliente"%>
     </td>
 
     <td>

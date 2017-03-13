@@ -18,28 +18,17 @@
 <table id="tabla" border=1 style="margin: 0 auto;">
   <tr>
 	<th scope="col">Producto</th>
-    <th scope="col">Precio</th>
-	<th scope="col">Cantidad</th>
-	<th scope="col">Precio Final</th>
+    <th scope="col">Cantidad</th>
   </tr>
   <tr>
     <td>
-	<%= f.collection_select  :producto_id,Producto.order(:Nombre),:id,:Nombre,prompt: "Seleccione Categoria"%>
+	<%= f.collection_select  :producto_id,Producto.order(:Nombre),:id,:Nombre,prompt: "Seleccione Producto"%>
 	</td>
 	
     <td>
-	
-	<%= f.collection_select  :producto_id,Producto.order(:Nombre),:id,:Precio,prompt: "Seleccione Categoria"%>
+		<%= f.text_field :Cantidad %>
 	</td>
-	<td>
-	<input type="text" id="precio" name="precio" value="0" onChange="multiplicar()">
-	</td>
-	<td>
-	<input type="text" id="cantidad" name="cantidad" value="1" onChange="multiplicar()">
-	</td>
-	<td>
-	<input type="text" id="total" name="total" class="form-input">
-	</td>
+		
   </tr> 
 </table>
 

@@ -6,17 +6,19 @@
 <td>Vendedor</td>
 <td>Producto</td>
 <td>Categoria</td>
+<td>Precio Unitario </td>
 <td>Cantidad</td>
 <td>Total</td>
 <td>Fecha Venta</td>
 <td>Eliminar</td>
 </tr>
-<% @sales.order(:id).each do|sale| %>
+<% Sale.order(:id).each do|sale| %>
 <tr>
   <td><%=sale.id%></td>
   <td><%=sale.user.Nombre%></td>
   <td><%=sale.producto.Nombre%></td>
   <td><%=sale.producto.category.Nombre%></td>
+  <td><%=sale.producto.Precio%></td>
   <td><%=sale.Cantidad%></td>
   <td><%=sale.Total%></td>
   <td><%=sale.created_at%></td>

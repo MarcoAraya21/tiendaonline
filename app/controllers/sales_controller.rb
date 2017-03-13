@@ -11,14 +11,18 @@ class SalesController < ApplicationController
   def create
 		@sale = current_user.sales.new(	producto_id: params[:sale][:producto_id],
 							user_id: params[:sale][:user_id],
-							Cantidad: params[:sale][:Cantidad],
-							Total: params[:sale][:Total])
-
-
-		if	@sale.save
-			redirect_to "/ventas/"
+							Cantidad: params[:sale][:Cantidad].to_i)
+		@sale.Total = @sale.Cantidad * @sale.producto.Precio
+		p = Producto.find params[:sale][:producto_id]
+		p.Stock = p.Stock - @sale.Cantidad
+		if	p.save
+			if	@sale.save
+				return redirect_to "/sales/"
+			else
+				return redirect_to :back
+			end 
 		else
-			render :new
+			return redirect_to :back, alert: "STOCK MINIMO , NO SE PUEDE VENDER"
 		end
 	end
 
@@ -29,7 +33,7 @@ class SalesController < ApplicationController
 	end
 
 	  private
-    # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share common setup or constraints between actions.	
     def set_sale
       @sale = Sale.find(params[:id])
     end
