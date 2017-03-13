@@ -32,6 +32,9 @@
 	<%= f.collection_select  :producto_id,Producto.order(:Nombre),:id,:Precio,prompt: "Seleccione Categoria"%>
 	</td>
 	<td>
+	<input type="text" id="precio" name="precio" value="0" onChange="multiplicar()">
+	</td>
+	<td>
 	<input type="text" id="cantidad" name="cantidad" value="1" onChange="multiplicar()">
 	</td>
 	<td>
