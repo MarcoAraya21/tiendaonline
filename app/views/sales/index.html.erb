@@ -1,0 +1,32 @@
+<u><h1 align='center'><b> <%= image_tag 'logo2.jpg', :alt =>'logo2'%></h1></u>
+<br>
+<table align="center" border=1 bgcolor="white">
+<tr>
+<td>Id Venta</td>
+<td>Vendedor</td>
+<td>Producto</td>
+<td>Categoria</td>
+<td>Cantidad</td>
+<td>Total</td>
+<td>Fecha Venta</td>
+<td>Eliminar</td>
+</tr>
+<% @sales.order(:id).each do|sale| %>
+<tr>
+  <td><%=sale.id%></td>
+  <td><%=sale.user.Nombre%></td>
+  <td><%=sale.producto.Nombre%></td>
+  <td><%=sale.producto.category.Nombre%></td>
+  <td><%=sale.Cantidad%></td>
+  <td><%=sale.Total%></td>
+  <td><%=sale.created_at%></td>
+  <td align="center"><%=link_to "X" , sale,method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+</tr>
+
+  <%end%>
+</table>
+<br>
+<center>
+<input type='button' onclick=" location.href='/ventas' " name='boton3' value='Volver' style='width:150; height:50'>
+</input>
+</center>

@@ -17,8 +17,6 @@
 <br>
 <table id="tabla" border=1 style="margin: 0 auto;">
   <tr>
-    <th scope="col">Categoria</th>
-    <th scope="col">Subcategoria</th>
 	<th scope="col">Producto</th>
     <th scope="col">Precio</th>
 	<th scope="col">Cantidad</th>
@@ -27,15 +25,11 @@
   <tr>
     <td>
 	<%= f.collection_select  :producto_id,Producto.order(:Nombre),:id,:Nombre,prompt: "Seleccione Categoria"%>
-	</td>		
-	<td>
-    <select id="producto" name="producto">
-	<option value=0> Elige </option>
-	</select>	
 	</td>
+	
     <td>
-	<select type="text" id="precio" name="precio" value="0" onChange="multiplicar()">
-	</select>
+	
+	<%= f.collection_select  :producto_id,Producto.order(:Nombre),:id,:Precio,prompt: "Seleccione Categoria"%>
 	</td>
 	<td>
 	<input type="text" id="cantidad" name="cantidad" value="1" onChange="multiplicar()">
@@ -50,7 +44,7 @@
  <table style="margin: 0 auto;">
  <tr>
  <th>
- <h1><input class="form-btn" type='button' name='Vender' value='Vender' onclick="valida()" style='width:100; height:50'></h1>
+ <%= f.submit "Vender",  class:"btn be-blue white"%>
  </th>
  </tr>
 </table>

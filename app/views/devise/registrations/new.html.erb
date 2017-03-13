@@ -27,7 +27,7 @@
   </div>
   <br>
   <div>
-  <%= f.collection_select  :type_id,Type.limit(2).order(:id),:id,:Descripcion,prompt: "Seleccione Tipo"%>
+  <%= f.collection_select  :type_id,Type.limit(2).offset(1),:id,:Descripcion,prompt: "Seleccione Tipo"%>
   </div>
 
     <br>

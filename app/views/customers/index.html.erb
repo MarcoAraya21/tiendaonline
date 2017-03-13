@@ -1,0 +1,28 @@
+<u><h1 align='center'><b> <%= image_tag 'logo2.jpg', :alt =>'logo2'%></h1></u>
+<br>
+<table align="center" border=1 bgcolor="white">
+<tr>
+<td>Id Cliente</td>
+<td>Rut</td>
+<td>Nombre</td>
+<td>Apellido</td>
+<td>Modificar</td>
+<td>Eliminar</td>
+</tr>
+<% @customers.order(:id).each do|customer| %>
+<tr>
+	<td><%=customer.id%></td>
+	<td><%=customer.Rut%></td>
+	<td><%=customer.Nombre%></td>
+	<td><%=customer.Apellido%></td>
+	<td align="center"><%= link_to 'M', edit_customer_path(customer) %></td>
+	<td align="center"><%=link_to "X" , customer,method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+</tr>
+
+	<%end%>
+</table>
+<br>
+<center>
+<input type='button' onclick=" location.href='/clientes' " name='boton3' value='Volver' style='width:150; height:50'>
+</input>
+</center>

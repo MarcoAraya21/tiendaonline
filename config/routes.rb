@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   resources :producttypes
   resources :productos
   resources :types
+  resources :customers
+  resources :reservations
   resources :sales
   devise_for :users, controllers: {registrations: "registrations" }
+  resources :users, :only => [:destroy]
 get 'welcome/index'
 
 get 'principal', to: 'welcome#index'
@@ -28,10 +31,22 @@ get 'tipos/index'
 
 get'tipos', to:'tipos#index'
 
+get 'ofertas/index'
+
+get'ofertas', to:'ofertas#index'
+
+get 'clientes/index'
+
+get'clientes', to:'clientes#index'
+
+get 'reservas/index'
+
+get'reservas', to:'reservas#index'
+
 post 'eleccion/index'
 post'eleccion', to:'eleccion#index'
 
-
+match ':controller(/:action(/:id))', :via => [:get, :post]
 	resources :products
 =begin
   	get "/products"

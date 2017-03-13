@@ -1,0 +1,46 @@
+<center>
+<%= form_for(reservation) do |f| %>
+  <% if reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation.errors.count, "error") %> en este producto:</h2>
+
+      <ul>
+      <% reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+
+<table id="tabla" border=1 style="margin: 0 auto;">
+  <tr>
+  <th scope="col">Producto</th>
+    <th scope="col">Cliente</th>
+  <th scope="col">Codigo</th>
+  </tr>
+  <tr>
+    <td>
+    <%= f.collection_select  :producto_id,Producto.order(:Nombre),:id,:Nombre,prompt: "Seleccione Categoria"%>
+    </td>
+
+    <td>
+    <%= f.collection_select  :customer_id,Customer.order(:id),:id,:Rut,prompt: "Seleccione Categoria"%>
+    </td>
+
+    <td>
+    <%= f.text_field :Codigo,:value=>5.times.map{rand(10)}.join%>
+    </td>
+  </tr>
+  </table>
+  <br>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</center>
+<br>

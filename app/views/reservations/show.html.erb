@@ -1,0 +1,52 @@
+<center>
+<u><h1 align='center'><b> <%= image_tag 'logo2.jpg', :alt =>'logo2'%></h1></u>  
+<br>
+<table border=1 bgcolor=white>
+<tr>
+<td colspan=2 align="center">
+<strong>Reserva N° <%= @reservation.id %></strong>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Producto:</strong>
+</td>
+<td>
+  <%= @reservation.producto_id %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Rut:</strong>
+</td>
+<td>
+  <%= @reservation.customer.Rut %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Nombre:</strong>
+</td>
+<td>
+  <%= @reservation.customer.Nombre %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Codigo:</strong>
+</td>
+<td>
+  <%= @reservation.Codigo %>
+</td>
+</tr>
+
+
+</table>
+<br>
+<%= link_to 'Modificar', edit_reservation_path(@reservation) %> |
+<%= link_to 'Volver', reservations_path %>
+</center>

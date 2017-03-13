@@ -1,0 +1,43 @@
+<center>
+<u><h1 align='center'><b> <%= image_tag 'logo2.jpg', :alt =>'logo2'%></h1></u>  
+<br>
+<table border=1 bgcolor=white>
+<tr>
+<td colspan=2 align="center">
+<strong>Cliente N° <%= @customer.id %></strong>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Rut:</strong>
+</td>
+<td>
+  <%= @customer.Rut %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Nombre:</strong>
+</td>
+<td>
+  <%= @customer.Nombre %>
+</td>
+</tr>
+
+<tr>
+<td>
+  <strong>Apellido:</strong>
+</td>
+<td>
+  <%= @customer.Apellido %>
+</td>
+</tr>
+
+
+</table>
+<br>
+<%= link_to 'Modificar', edit_customer_path(@customer) %> |
+<%= link_to 'Volver', customers_path %>
+</center>
